@@ -13,6 +13,7 @@ async function loadMemberInfo() {
     });
     if (response.ok) {
         const data = await response.json();
+        setText("p_num", data.id);
         setText("p_id", data.login_id);
         setText("p_name", data.first_name);
         setText("p_email", data.email);
