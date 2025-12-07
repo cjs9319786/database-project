@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./css/Login.css" />
+  </head>
+  <body style="background-color: #e0f8de">
+    <div class="header">
+      <div class="header-bar">
+        <div id="logo">
+          <img src="./img/logo.png" width="120px" height="100px" onclick="navigateToPage()" style="cursor: pointer" />
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container" id="login" style="display: block">
+        <h2 style="padding-bottom: 30px; border-bottom: 2px solid green; font-size: 37px; color: green">로그인</h2>
+        <div id="login_wrap">
+          <form id="loginForm" style="width: 55%; margin-left: 20%; margin-top: 5%">
+            <input type="text" name="member_id" placeholder="id를 입력해주세요" style="width: 55%; margin-left: 10%" required />
+            <input
+              type="password"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+              style="width: 55%; margin-left: 10%"
+            />
+            <div style="display: flex; flex-direction: row; width: 80%; margin-left: 30%">
+              <button type="submit" style="width: 30%">로그인</button>
+              <button id="sign_up_btn" onclick="change_div()" style="width: 30%">회원가입으로</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="container" id="sign_up" style="display: none">
+        <h2 style="padding-bottom: 30px; border-bottom: 2px solid green; margin-right: 5%; font-size: 37px; color: green">
+          회원 가입
+        </h2>
+        <div id="signup_wrap">
+          <form id="signupForm" method="POST" action="/sign_up">
+            <div class="form_item">
+              <label for="member_id">ID:</label>
+              <input type="text" id="member_id" name="member_id" />
+            </div>
+            <br />
+            <div class="form_item">
+              <label for="password">비밀번호:</label>
+              <input type="password" id="password" name="password" />
+            </div>
+            <br />
+            <div class="form_item">
+              <label for="name">이름:</label>
+              <input type="text" id="name" name="name" />
+            </div>
+            <br />
+            <div class="form_item">
+              <label for="birthdate">생년월일:</label>
+              <input type="date" id="birthdate" name="birthdate" />
+            </div>
+            <br />
+            <div class="form_item">
+              <label for="hp">핸드폰 번호:</label>
+              <input type="tel" id="hp" name="hp" value="010" maxlength="11" placeholder="-없이 입력해주세요" required /><br />
+            </div>
+             <div class="form_item">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요" required /><br />
+            </div>
+            <br />
+            <div style="display: flex; flex-direction: row; width: 50%; margin-left: 40%">
+              <button type="submit" style="width: 30%">가입하기</button>
+              <button type="button" id="login_btn" onclick="change_div()" style="width: 30%">로그인으로</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./js/login_singup_script.js"></script>
+    <script>
+      function navigateToPage() {
+        window.location.href = "Main.html";
+      }
+      function change_div() {
+        var login = document.getElementById("login");
+        var sign_up = document.getElementById("sign_up");
+        console.log(login.style.display);
+        console.log(sign_up.style.display);
+
+        if (login.style.display == "block") {
+          login.style.display = "none";
+          sign_up.style.display = "block";
+        } else {
+          login.style.display = "block";
+          sign_up.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

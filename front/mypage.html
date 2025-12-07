@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet" />
+  <title>회원 페이지</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/myPage.css" />
+</head>
+
+<body style="background-color: #e0f8de">
+  <div id="header">
+    <div class="header-bar">
+      <div id="logo">
+        <img src="./img/logo.png" width="120px" height="100px" onclick="navigateToPage()" style="cursor: pointer" />
+      </div>
+      <div class="Menu-bar" id="Menu-bar_Member" style="display: block">
+        <a class="Menu-item" type="button" href="Main.html">메인화면으로</a>
+      </div>
+      <div id="login">
+        <div id="login_after" style="display: block">
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="Main">
+    <div id="div_container">
+      <div id="info_wrap">
+        <div id="member_info">
+          <div class="member_info_wrap">
+            <div class="info_item">
+              <p>회원 번호 :</p>
+              <p id="p_num"></p>
+              <p id="p_admin" style="margin-left: 200px"></p>
+            </div>
+            <div class="info_item">
+              <p>회원 ID :</p>
+              <p id="p_id"></p>
+            </div>
+            <div class="info_item">
+              <p>이름 :</p>
+              <p id="p_name"></p>
+            </div>
+            <div class="info_item">
+              <p>이메일 주소 :</p>
+              <p id="p_email"></p>
+            </div>
+            <div class="info_item">
+              <p>회원 전화번호 :</p>
+              <p id="p_hp"></p>
+            </div>
+            <div class="info_item">
+              <p>생년월일 :</p>
+              <p id="p_birth_date"></p>
+            </div>
+            <div class="info_item" id="info_Penalty">
+              <p>회원 상태 :</p>
+              <p id="p_panalty_count"></p>
+            </div>
+          </div>
+        </div>
+        <div id="loan_info_wrap">
+          <div style="display: flex; justify-content: center; align-items: center">
+            <strong id="strong_none" style="display: block">반납할 책이 없습니다</strong>
+          </div>
+          <div id="loan_info"></div>
+        </div>
+      </div>
+    </div>
+    <!-- mypage.html 수정 제안 -->
+    <!--[추가] 정보 수정 / 비밀번호 변경 / 회원 탈퇴 버튼 -->
+    <div class="btn_wrap">
+      <button onclick="openModal('editInfo')" style="padding: 10px; cursor: pointer;">내 정보 수정</button>
+      <button onclick="openModal('changePw')" style="padding: 10px; cursor: pointer;">비밀번호 변경</button>
+      <button onclick="deleteAccount()" style="padding: 10px; background-color: #ffcccc; cursor: pointer;">회원
+        탈퇴</button>
+    </div>
+  <!--[추가] 내 정보 수정 모달 -->
+  <div id="modal_editInfo" class="modal">
+    <div>
+        <h3>정보 수정</h3>
+        
+        <label>이름</label><br>
+        <input type="text" id="edit_name" placeholder="이름"><br>
+        
+        <label>이메일</label><br>
+        <input type="email" id="edit_email" placeholder="이메일"><br>
+        
+        <label>전화번호</label><br>
+        <input type="text" id="edit_hp" placeholder="010-XXXX-XXXX"><br>
+        
+        <label>생년월일</label><br>
+        <input type="date" id="edit_birth_date" style="width: 100%; margin-bottom: 20px;"><br>
+
+        <button onclick="submitEditInfo()">저장</button>
+        <button onclick="closeModal('editInfo')">취소</button>
+    </div>
+</div>
+  <!--[추가] 비밀번호 변경 모달 -->
+  <div id="modal_changePw" class="modal">
+    <div>
+      <h3>비밀번호 변경</h3>
+      <input type="password" id="current_pw" placeholder="현재 비밀번호"><br><br>
+      <input type="password" id="new_pw" placeholder="새 비밀번호"><br><br>
+      <button onclick="submitChangePw()">변경</button>
+      <button onclick="closeModal('changePw')">취소</button>
+    </div>
+  </div>
+  <!--[추가] 내가 쓴 리뷰 목록 섹션 -->
+  <div id="my_reviews_wrap">
+    <h3>내가 쓴 리뷰</h3>
+    <div id="my_reviews_list">
+    </div>
+  </div>
+</div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("authToken");
+      window.location.href = "Main.html";
+    }
+  </script>
+  <script src="./js/mypage.js"></script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+#wrap {
+  width: 100%;
+  height: 1150px;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+.find_book_container {
+  width: 100%;
+  height: 250px;
+}
+.find_title {
+  padding-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.find_title strong {
+  font-size: 30px;
+  font-family: "NanumSquareNeoHeavy";
+}
+.find_title p {
+  font-size: 20px;
+}
+#Search_wrap {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+body {
+  background-color: #e0f8de;
+}
+
+#search_Result {
+  width: 100%;
+  max-height: 2500px;
+  height: auto;
+}
+#search_bar {
+  align-items: center;
+  padding: 0;
+  justify-content: center;
+  padding-top: 20px;
+  width: 1800px;
+  background-color: white;
+}
+
+.search_bar_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search_bar_title {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.search_bar_title strong {
+  font-size: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#searchForm {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#booksearch_input {
+  width: 450px;
+  height: 55px;
+  border-radius: 10px;
+  border: 3px solid black;
+}
+.find_book input::placeholder {
+  font-size: 18px;
+  color: gray;
+  text-align: center;
+}
+#booksearch_button {
+  width: 80px;
+  margin-left: 20px;
+  height: 57px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid black;
+}
+#booksearch_button:hover {
+  background-color: rgb(232, 255, 216);
+}
+
+.close_btn {
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border: 2px solid black;
+  line-height: 100%;
+  border-radius: 6px;
+  margin-right: 50px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  float: right;
+}
+
+.Result_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 15px 0px;
+  height: 880px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#search_Result {
+  display: flex;
+  justify-content: center;
+}
+
+.Result_wrap {
+  width: 1600px;
+  border-radius: 10px;
+  height: 900px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 2px solid black;
+}
+
+.Result_list_wrap {
+  border-radius: 10px;
+  height: 800px;
+}
+
+.Result_list {
+  border-radius: 10px;
+}
+
+.Result_Detail {
+  width: 700px;
+  border-radius: 10px;
+  margin-left: 45px;
+  max-height: 85vh;
+  float: right;
+  border: 2px solid black;
+  height: 850px;
+  overflow-y: auto;
+}
+
+.Detail_item {
+  font-size: 25px;
+  margin: 20px;
+}
+.Result_li {
+  cursor: pointer;
+}
+
+.Result_li table {
+  width: 100%;
+}
+
+.Result_li table td {
+  padding: 5px;
+}
+
+.Result_li table td:nth-child(1) {
+  width: 15%;
+}
+
+.Result_li table td:nth-child(2) {
+  width: 30%;
+}
+
+.Result_li table td:nth-child(3) {
+  width: 15%;
+}
+
+.Result_li table td:nth-child(4) {
+  width: 20%;
+}
+
+.Result_li table td:nth-child(5) {
+  width: 10%;
+}
+.Result_item {
+  font-family: "NanumSquareNeoHeavy";
+  border-right: 2px solid black;
+  align-items: center;
+  font-size: 25px;
+}
+
+.top {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid gray;
+}
+.li-item {
+  display: flex;
+  height: 70px;
+  border-bottom: 1px solid #ddd;
+}
+.b_title {
+  display: flex;
+  width: 45%;
+  font-size: 20px;
+  font-family: "NanumSquareNeo";
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+}
+.b_writer {
+  display: flex;
+  width: 25%;
+  font-size: 20px;
+  font-family: "NanumSquareNeo";
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+}
+.b_publish {
+  display: flex;
+  width: 12%;
+  font-size: 20px;
+  font-family: "NanumSquareNeo";
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+}
+.b_amount {
+  display: flex;
+  width: 5%;
+  font-size: 20px;
+  font-family: "NanumSquareNeo";
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+  margin-left: 2%;
+}
+.board_page {
+  width: 100%;
+  height: 70px;
+  border-top: 2px gray solid;
+  text-align: center;
+}
+.board_page a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border: 2px solid black;
+  line-height: 100%;
+  border-radius: 6px;
+  margin: 5px;
+}
+.board_page a.bt {
+  padding-top: 10px;
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+
+.board_page a.num_p {
+  padding-top: 9px;
+  font-size: 20px;
+}
+
+.board_page a.num_p.on {
+  border-color: black;
+  background: rgb(232, 255, 216);
+  color: black;
+}
+.board_page a.num_p:hover {
+  transform: translateY(-5px);
+  background: rgb(232, 255, 216);
+}
+.board_page a.bt:hover {
+  transform: translateY(-5px);
+  background: rgb(232, 255, 216);
+}
+/* 상세 모달 CSS */
+.Detail_top {
+  width: 90%;
+  padding-left: 5%;
+  font-size: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "NanumSquareNeoHeavy";
+  padding-bottom: 15px;
+}
+.Detail_middle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid gray 1px;
+}
+.Detail_middle_item {
+  width: 50%;
+  height: 400px;
+}
+.Detail_middle_item p {
+  font-size: 26px;
+  font-family: "NanumSquareNeoHeavy";
+}
+.Detail_Writer {
+  width: 100%;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid gray;
+}
+.Detail_Publish {
+  width: 100%;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Detail_image {
+  width: 50%;
+}
+.Detail_bottom {
+  width: 100%;
+  height: 210px;
+  border-bottom: 1px solid gray;
+}
+.Detail_bottom p {
+  font-size: 23px;
+  font-family: "NanumSquareNeoHeavy";
+}
+.Detail_info {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid gray;
+}
+.b_image {
+  width: 345px;
+  height: 395px;
+}
+.amount_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loan_btn {
+  width: 100px;
+  height: 54px;
+  border-radius: 15px;
+  border: 2px solid green;
+  background-color: white;
+  margin-left: 30px;
+  cursor: pointer;
+}
+#p_info {
+  width: 670px;
+}
+#p_num {
+  margin-right: 10px;
+}
+
+/* 모달 배경 */
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+/* 모달 창 본체 */
+.Result_Detail {
+  background-color: white;
+  width: 800px;
+  max-height: 950px;
+  padding: 30px;
+  border-radius: 15px;
+  position: relative;
+  display: block; 
+  overflow-y: auto;
+  overflow-x: hidden;
+}

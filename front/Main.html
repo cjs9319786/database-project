@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>book Manger</title>
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/Main.css" />
+  </head>
+  <body>
+    <div id="header">
+      <div class="header-bar">
+        <div id="logo">
+          <img src="./img/logo.png" width="120px" height="100px" />
+        </div>
+        <div class="Menu-bar" id="Menu-bar_Member" style="display: none">
+          <a class="Menu-item" type="button" href="mypage.html">내정보</a>
+          <a class="Menu-item" type="button" href="CheckBook.html">도서대출/반납</a>
+        </div>
+        <div class="Menu-bar" id="Menu-bar_Manager" style="display: none">
+          <a class="Menu-item" type="button" href="Member.html">회원관리</a>
+          <a class="Menu-item" type="button" href="CheckBook.html">도서대출/반납</a>
+          <a class="Menu-item" type="button" href="bookDataEdit.html">도서편집</a>
+        </div>
+        <div id="login">
+          <div id="login_before">
+            <a href="Login.html">로그인</a>
+          </div>
+          <div id="login_after" style="display: none">
+            <button onclick="logout()">Logout</button>
+            <span id="user_name"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="wrap">
+      <div class="find_book_container">
+        <div class="find_title">
+          <strong>도서 검색</strong>
+          <p>검색하고 싶은 도서의 정보를 입력하세요</p>
+        </div>
+        <div class="find_book">
+          <form id="searchForm" method="POST" action="/search">
+            <input id="booksearch_input" type="text" placeholder="도서 이름 입력" />
+            <input id="booksearch_button" type="submit" value="검색" />
+          </form>
+        </div>
+      </div>
+      <div id="search_Result" style="display: none">
+        <div class="close_btn" id="close_btn" onclick="closeList()">X</div>
+        <div class="Result_container">
+          <div class="Result_wrap">
+            <div class="Result_list_wrap">
+              <div class="Result_list" id="Result_list">
+                <div class="top">
+                  <div class="b_title">책 제목</div>
+                  <div class="b_writer">저자</div>
+                  <div class="b_publish">출판사</div>
+                  <div class="b_amount">수량</div>
+                </div>
+              </div>
+              <div class="board_page" id="board_page"></div>
+            </div>
+          </div>
+          <div id="modal_overlay" class="modal_overlay" style="display: none;">
+  
+  <!-- 도서 상세 정보 출력 -->
+  <div class="Result_Detail" id="Result_Detail">
+    
+    <span class="close_modal_btn" onclick="closeDetail()" style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer;">×</span>
+
+    <div class="Detail_top" style="flex-direction: column; gap: 5px;"> <p id="p_title" style="font-size: 24px; font-weight: bold;">제목</p>
+  
+      <div id="p_rating_container" style="font-size: 18px; color: #f39c12;">
+        <span id="p_stars">⭐⭐⭐⭐⭐</span> 
+        <span id="p_rating_value" style="color: black; font-size: 16px;">(0.0)</span>
+      </div>
+    </div>
+    
+    <div class="Detail_middle">
+      <div class="Detail_middle_item">
+        <div class="Detail_Writer">
+          <span style="font-weight:bold; color:#555;">저자: </span>
+          <span id="p_writer">저자</span>
+        </div>
+        <div class="Detail_Publish">
+          <span style="font-weight:bold; color:#555;">출판사: </span>
+          <span id="p_publish">출판사</span>
+        </div>
+      </div>
+      <div class="Detail_image" id="Detail_image"></div>
+    </div>
+
+    <div class="Detail_bottom">
+      <div class="Detail_info">
+        <p id="p_info" style="color:#666;">내용</p>
+      </div>
+      <div class="Detail_amount">
+        <div class="amount_wrap">
+          <p>ISBN: <span id="p_num" style="font-weight:normal;"></span></p>
+          <p>재고 수량: <span id="p_amount" style="color:blue; font-weight:bold;">수량</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="Detail_Review_Section" style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 10px;">
+        <h3>도서 리뷰</h3>
+        
+        <div id="my_review_actions" style="margin: 10px 0;">
+        </div>
+        <div id="review_form_container" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+            <label>평점: <select id="review_rating">
+                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                <option value="4">⭐⭐⭐⭐ (4)</option>
+                <option value="3">⭐⭐⭐ (3)</option>
+                <option value="2">⭐⭐ (2)</option>
+                <option value="1">⭐ (1)</option>
+            </select></label>
+            <br><br>
+            <textarea id="review_content" style="width: 100%; height: 60px;" placeholder="리뷰 내용을 입력하세요"></textarea>
+            <div style="margin-top: 10px; text-align: right;">
+                <button onclick="submitReview()" style="cursor:pointer; padding: 5px 10px; background:green; color:white;">저장</button>
+                <button onclick="closeReviewForm()" style="cursor:pointer; padding: 5px 10px;">취소</button>
+            </div>
+        </div>
+
+        <div id="reviews_list" style="margin-top: 15px; max-height: 200px; overflow-y: auto;"></div>
+    </div>
+    
+  </div>
+</div>
+      </div>
+    </div>
+    <div id="footer"></div>
+    <script src="./js/login_check.js"></script>
+    <script src="./js/Main.js"></script>
+  </body>
+</html>

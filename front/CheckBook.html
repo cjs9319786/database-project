@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css"
+      rel="stylesheet"
+    />
+    <title>도서 대여/반납</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/CheckBook.css" />
+  </head>
+  <body style="background-color: #e0f8de">
+    <div id="header">
+      <div class="header-bar">
+        <div id="logo">
+          <img
+            src="./img/logo.png"
+            width="120px"
+            height="100px"
+            onclick="navigateToPage()"
+            style="cursor: pointer"
+          />
+        </div>
+        <div class="Menu-bar" id="Menu-bar_Member" style="display: none">
+          <a class="Menu-item" type="button" href="Main.html">메인화면으로</a>
+        </div>
+        <div class="Menu-bar" id="Menu-bar_Manager" style="display: none">
+          <a class="Menu-item" type="button" href="Member.html">회원관리</a>
+          <a class="Menu-item" type="button" href="ReviewManage.html">리뷰관리</a>
+          <a class="Menu-item" type="button" href="Main.html">메인화면으로</a>
+          <a class="Menu-item" type="button" href="bookDataEdit.html">도서편집</a>
+        </div>
+        <div id="login">
+          <div id="login_after" style="display: block">
+            <button onclick="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Main">
+      <!-- 페이지 나누자...-->
+      <div class="container_wrap">
+        <div id="btn_wrap" class="btn_wrap">
+          <input
+            type="button"
+            class="div_change_btn"
+            id="div_return_btn"
+            onclick="change_div(1)"
+            value="반납"
+          />
+          <input
+            type="button"
+            class="div_change_btn"
+            id="div_loan_btn"
+            onclick="change_div(2)"
+            value="대여"
+          />
+        </div>
+
+        <div class="container" id="book_loan_container" style="display: none">
+          <div class="div_wrap" id="loan_wrap" style="justify-content: center;">
+            
+            <div id="book_div" class="section" style="width: 100%; max-width: 1200px;">
+              <h2>도서 검색 및 대여</h2>
+              <div id="book_search_div" class="search">
+                <input
+                  type="text"
+                  id="book_search_input"
+                  placeholder="책 제목 또는 저자 검색"
+                  class="search_bar"
+                  style="width: 60%;"
+                />
+                <button id="book_search_btn" class="search_btn">검색</button>
+              </div>
+              <div id="result_book_div" class="results" style="min-height: 400px;"></div>
+              <div class="board_page" id="board_page"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <div
+          class="container"
+          id="book_return_container"
+          style="display: none; height: 700px"
+        >
+          <div class="div_wrap" id="return_wrap" style="justify-content: center;">
+            <div id="return_div" class="section" style="width: 100%; max-width: 1200px; height: 600px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h2 style="margin: 0;">나의 대여 목록</h2>
+                <button id="return_search_btn" class="search_btn" style="width: 120px;">
+                  목록 새로고침
+                </button>
+              </div>
+              
+              <div
+                id="result_return_div"
+                class="results"
+                style="width: 100%; height: 90%;"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 탭 전환 함수
+      function change_div(num) { 
+        if (num == 1) {
+          // [반납 화면]
+          document.getElementById("book_return_container").style.display = "block";
+          document.getElementById("book_loan_container").style.display = "none";
+          
+          // 탭을 누르면 자동으로 목록 조회 실행
+          setTimeout(() => {
+             document.getElementById("return_search_btn").click();
+          }, 100); 
+
+        } else {
+          // [대여 화면]
+          document.getElementById("book_return_container").style.display = "none";
+          document.getElementById("book_loan_container").style.display = "block";
+        }
+      }
+    </script>
+    <script src="./js/CheckBook.js"></script>
+  </body>
+</html>

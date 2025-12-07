@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet" />
+  <title>회원관리</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/Member_manage.css" />
+</head>
+
+<body style="background-color: #e0f8de">
+  <div id="header">
+    <div class="header-bar">
+      <div id="logo">
+        <img src="./img/logo.png" width="120px" height="100px" onclick="navigateToPage()" style="cursor: pointer" />
+      </div>
+      <div class="Menu-bar" id="Menu-bar_Manager" style="display: block">
+        <a class="Menu-item" type="button" href="ReviewManage.html">리뷰관리</a>
+        <a class="Menu-item" type="button" href="Main.html">메인화면으로</a>
+        <a class="Menu-item" type="button" href="bookDataEdit.html">도서편집</a>
+      </div>
+      <div id="login">
+        <div id="login_after" style="display: block">
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div id="contents_wrap">
+      <div id="check_member_wrap" style="display: block">
+        <div class="button_wrap">
+          <img src="./img/search.png" width="70px" height="60px" style="margin-left: 10px" />
+          <form id="searchForm" method="POST">
+            <input type="text" id="search_Bar" placeholder="회원 이름을 입력하세요" />
+            <input id="member_Search_Btn" type="submit" onclick="change_join()" value="검색" />
+          </form>
+          <input type="button" value="전체 회원 조회" class="div_change_btn" onclick="change_join()" id="join_member_btn" />
+          <input type="button" value="회원 등록" class="div_change_btn" onclick="showModal('signUp')"
+            id="join_member_btn" />
+        </div>
+        <div class="check_wrap" id="join_member_check_wrap" style="display: none">
+          <div class="member_List" id="join_member_List">
+            <div class="top"></div>
+          </div>
+        </div>
+        <div class="list_Page" id="list_Page" style="display: none">
+        </div>
+      </div>
+      <div class="member_Manage_wrap" id="member_Manage_wrap" style="display: none">
+        <div class="manage_Wrap" id="manage_Wrap">
+          <div class="info_Wrap" id="info_wrap">
+          </div>
+          <div class="button_wrap" id="btn_wrap">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id=modal_section>
+    <div id="signUpModal" class="modal">
+      <div class="modal-content" style="width: 800px;">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>회원 등록</h2>
+        <form id="memberSignUpForm">
+          <label for="modal_login_id">회원 ID:</label>
+          <input type="text" id="modal_login_id" name="modal_login_id" required><br>
+
+          <div><label for="modal_password">비밀번호:</label>
+            <input type="password" id="modal_password" name="modal_password" required>
+          </div>
+
+
+          <label for="modal_first_name">이름:</label>
+          <input type="text" id="modal_first_name" name="modal_first_name" required><br>
+
+          <label for="modal_email">이메일:</label>
+          <input type="email" id="modal_email" name="modal_email" required><br>
+
+          <label for="modal_phone_number">전화번호:</label>
+          <input type="tel" id="modal_phone_number" name="modal_phone_number" value="010" maxlength="11"
+            placeholder="-없이 입력해주세요" required><br>
+
+          <label for="modal_birth_date">생년월일:</label>
+          <input type="date" id="modal_birth_date" name="modal_birth_date" placeholder="생년월일을 입력해주세요" required><br>
+
+          <label for="modal_status">회원 상태:</label>
+          <select id="modal_status" name="modal_status">
+            <option value="정상" id="option_normal">정상</option>
+            <option value="정지" id="option_stop">정지</option>
+            <option value="탈퇴" disabled>탈퇴</option>
+          </select><br>
+          <div id="btn_box">
+            <button id="sign_up_btn" type="submit">가입하기</button>
+            <button id="modify_btn" type="button" onclick="modify_info()">수정하기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="borrowModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>회원 대여/반납 내역</h2>
+        <div id="borrow_history_list_wrap"></div>
+      </div>
+    </div>
+    <div id="rent_modal" class="modal">
+      <div class="modal-content rent-modal-size">
+        <span class="close" onclick="closeModal('rent_modal')">&times;</span>
+        <h3>도서 대여 처리</h3>
+
+        <div class="rent-info-text">
+          대여 회원: <span id="rent_target_name"></span>
+        </div>
+        <input type="hidden" id="rent_target_member_id">
+
+        <div class="input_wrap_rent">
+          <input type="text" id="rent_isbn_input" placeholder="도서 ISBN 입력 (-없이 입력)">
+        </div>
+
+        <div class="rent-btn-wrap">
+          <button onclick="processRent()">대여 실행</button>
+          <button onclick="closeModal()">취소</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <script>
+  </script>
+  <script src="./js/Member_manage.js"></script>
+  <script src="./js/member_borrow.js"></script>
+</body>
+
+</html>

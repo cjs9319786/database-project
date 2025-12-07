@@ -1,0 +1,211 @@
+/* 상단 타이틀 영역 */
+.review_title_wrap {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 2px solid green;
+    margin-bottom: 30px;
+    width: 90%;
+    margin: 0 auto 30px auto;
+}
+
+.review_title_wrap h2 {
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+    color: #333;
+}
+
+/* 검색 및 필터 박스 (정렬 셀렉트 + 검색창) */
+.search_filter_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    width: 95%;
+    margin: 0 auto 15px auto;
+}
+
+/* 정렬 셀렉트 박스 스타일 */
+#sort_select {
+    height: 40px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'NanumSquareNeo-Variable', sans-serif;
+}
+
+#sort_select:focus {
+    outline: none;
+    border-color: green;
+}
+
+/* 검색 폼 내부 스타일 */
+.search_wrap form {
+    display: inline-flex;
+    align-items: center;
+}
+
+.search_icon {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#search_Bar {
+    height: 38px;
+    width: 250px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+}
+
+#review_Search_Btn {
+    width: 60px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+#review_Search_Btn:hover {
+    background-color: #e0f8de;
+    color: green;
+}
+
+/* 리뷰 리스트 그리드 레이아웃 */
+.review_List_container {
+    width: 95%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    min-height: 500px;
+}
+
+/* 리스트 공통 스타일 (헤더 및 아이템) */
+.review_List .top, 
+.review_List .li-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* 헤더 (.top) 스타일 */
+.review_List .top {
+    font-weight: bold;
+    background-color: #f1f8f1; /* 연한 녹색 배경 */
+    border-bottom: 2px solid #333;
+    border-radius: 10px 10px 0 0;
+    color: #333;
+}
+
+/* 개별 아이템 (.li-item) 스타일 */
+.review_List .li-item {
+    border-bottom: 1px solid #eee;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.review_List .li-item:hover {
+    background-color: #fafafa;
+}
+
+/* 컬럼별 너비 및 스타일 */
+.col_id { 
+    width: 5%; 
+    color: #666;
+}
+
+.col_book { 
+    width: 20%; 
+    font-weight: bold;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    padding: 0 5px;
+    cursor: default;
+}
+
+.col_user { 
+    width: 10%; 
+    color: #555;
+}
+
+.col_rating { 
+    width: 12%; 
+    color: #f39c12; /* 별 색상 (주황/노랑) */
+    font-weight: bold; 
+}
+
+.col_content { 
+    width: 33%; 
+    text-align: left; 
+    padding-left: 15px; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    color: #444;
+}
+
+.col_date { 
+    width: 10%; 
+    font-size: 13px; 
+    color: #888; 
+}
+
+.col_manage { 
+    width: 10%; 
+}
+
+/* 삭제 버튼 스타일 */
+.delete_btn_style {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.delete_btn_style:hover {
+    background-color: #c0392b;
+}
+
+/* 페이지네이션 (기본 스타일은 Member_manage.css를 따르지만 위치 조정) */
+#list_Page {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.col_content {
+    /* 기존 스타일 유지 */
+    width: 33%; 
+    text-align: left; 
+    padding-left: 15px; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    
+    /* [추가] 마우스 오버 효과 */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.col_content:hover {
+    color: #2980b9; /* 파란색 계열로 변경 */
+    text-decoration: underline;
+}

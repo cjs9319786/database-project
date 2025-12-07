@@ -1,0 +1,95 @@
+body {
+  background-color: #e0f8de;
+}
+#header {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+.header-bar {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: green;
+  display: flex; /* Flexbox를 사용하여 요소들을 가로로 정렬 */
+  align-items: center; /* 요소들을 수직으로 가운데 정렬 */
+  justify-content: space-between;
+  max-height: 129px; /* header-bar의 최대 높이 설정 */
+}
+#login {
+  margin-right: 1%;
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  height: 80px;
+}
+
+#login a {
+  font-size: 30px;
+  margin-right: 50px; /* 오른쪽 여백을 원하는 만큼 설정 */
+  font-family: "NanumSquareNeoHeavy";
+  color: white;
+}
+
+#login button {
+  font-size: 30px;
+  margin-right: 50px; /* 오른쪽 여백을 원하는 만큼 설정 */
+  font-family: "NanumSquareNeoHeavy";
+  color: white;
+}
+
+#logo {
+  float: right;
+}
+
+#header-bar {
+  width: 100%;
+  height: 80px;
+  background-color: yellow;
+}
+
+.Menu-bar {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+}
+.Menu-bar a {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 30px;
+  background-color: green;
+  font-family: "NanumSquareNeoHeavy";
+  color: white;
+}
+#footer {
+  margin: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: white; /* 예시로 검정색 배경색 지정 */
+  color: #fff; /* 텍스트 색상 지정 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+  line-height: calc(10vh); /* 텍스트를 수직 가운데 정렬 */
+}
+
+/* 로그아웃 버튼 스타일 */
+#login_after button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px; 
+  font-family: "NanumSquareNeoBold";
+  transition: background-color 0.3s;
+}
