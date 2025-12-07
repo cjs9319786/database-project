@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if(result.errorcode === 1){
           alert("이미 존재하는 아이디입니다. 다른 아이디를 사용해주세요.");
           return;
+        }else if (!first_name || first_name.trim() === "") {
+          alert("이름을 입력해주세요.");
+          return;
         }else if(result.errorcode === 2){
           alert("이미 가입된 이메일입니다. 다른 이메일을 사용해주세요.");
           return;
