@@ -16,13 +16,14 @@ def import_publisher_from_csv(filepath):
     existing_count = 0
     
     print("출판사 임포트 시작")
+
     
     for index, row in df.iterrows():
         publisher_id_from_csv = row['publisher_id']
         publisher_name_from_csv = row['publisher_name']
         publisher_phone_number_from_csv = row['phone_number']
         
-        
+        '''
         publisher, created = Publisher.objects.get_or_create(
             publisher_id=publisher_id_from_csv, 
             defaults={
@@ -30,9 +31,9 @@ def import_publisher_from_csv(filepath):
                 'phone_number': publisher_phone_number_from_csv
             }
         )
-        
-
         '''
+
+        
         publisher, created = Publisher.objects.get_or_create(
                 publisher_name=publisher_name_from_csv,
                 
@@ -41,7 +42,7 @@ def import_publisher_from_csv(filepath):
                     'phone_number': publisher_phone_number_from_csv
                 }
             )
-        '''
+        
 
         if created:
             created_count += 1
