@@ -112,7 +112,7 @@ print("3. 컬럼명 변경 및 파일 저장")
 print("="*30)
 
 
-# 데이터가 존재하고 길이 제한에 문제가 없으면 저장 (강제 저장하려면 조건문 제거 가능)
+# 데이터가 존재하고 길이 제한에 문제가 없으면 저장
 if not df.empty:
     #rename_map
     print(f"컬럼명을 변경합니다: {list(rename_map.values())}")
@@ -127,3 +127,4 @@ if not df.empty:
     print(df.head(3))
 else:
     print("저장할 데이터가 없거나 데이터프레임이 비어 있습니다.")
+
